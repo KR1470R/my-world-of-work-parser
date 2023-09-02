@@ -1,0 +1,64 @@
+/**
+* Categories
+**/
+{
+    string(sha256): {
+        "name": string,
+    },
+    ...
+}
+
+
+/**
+* Skills
+**/
+{
+    string(sha256): {
+        "name": string,
+    },
+    ...
+}
+
+/**
+* Job titles
+**/
+{
+    string(sha256): {
+        "category_id": string(sha256),
+        "url": string,
+        "job_name": string,
+        "alternative_titles": Array(string),
+        "pathways": Array(string),
+        "salary": {
+            "entry_level": Optional(string),
+            "experienced": string,
+            "average": Optional(string),
+        },
+        "description": string,
+        "working_conditions": {
+            "hours": string,
+            "environment": string,
+            "travel": Optional(string),
+        },
+        "employment_status": {
+            "full_time": string,
+            "part_time": string,
+            "self_employed": string,
+        },
+        "top_skills": Array(string(sha256)),
+        "getting_in": {
+            "qualifications": string,
+            "useful_subjects": Array(string),
+            "helpful_to_have": Optional(string),
+        },
+        "related_careers": Array(string(uuid)),
+        "explore_more": Optional([
+            {
+                title: string,
+                url: string,
+            },
+            ...
+        ]),
+    },
+    ...
+}

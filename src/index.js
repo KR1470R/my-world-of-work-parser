@@ -253,6 +253,12 @@ async function parse_profiles(job_profiles_links) {
   }
 }
 
+async function saveAll() {
+  await fs.writeFile("store/skills.json", JSON.stringify(store["skills"], null, '\t'));
+  await fs.writeFile("store/categories.json", JSON.stringify(store["categories"], null, '\t'));
+  await fs.writeFile("store/job_profiles.json", JSON.stringify(store["job_profiles"], null, '\t'));
+}
+
 async function main() {
   try {
     const job_profiles_links = await parse_categories();
@@ -261,7 +267,8 @@ async function main() {
   } catch (err) {
     console.error(err);
   };
-  await fs.writeFile("store/output.json", JSON.stringify(store, null, '\t'));
+
+  await saveAll();
 }
 
 main()

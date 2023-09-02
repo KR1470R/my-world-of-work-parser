@@ -1,7 +1,7 @@
 function decodeEntities(encodedString) {
   if (!encodedString) return;
-  var translate_re = /&(nbsp|amp|quot|lt|gt);/g;
-  var translate = {
+  const translate_re = /&(nbsp|amp|quot|lt|gt|pound|dollar|euro|cent|yen);/g;
+  const translate = {
       "nbsp":" ",
       "amp" : "&",
       "quot": "\"",
@@ -14,10 +14,10 @@ function decodeEntities(encodedString) {
       "yen": "¥",
   };
   return encodedString.replace(translate_re, function(match, entity) {
-      return translate[entity];
+    return translate[entity];
   }).replace(/&#(\d+);/gi, function(match, numStr) {
-      var num = parseInt(numStr, 10);
-      return String.fromCharCode(num);
+    const num = parseInt(numStr, 10);
+    return String.fromCharCode(num);
   });
 }
 
@@ -29,6 +29,6 @@ const washText = (text) => {
   return result;
 }
 
-console.log(washText("Accountant- Management"))
+console.log(washText("Accountant- Management &pound;14,000"))
 
 module.exports = washText;

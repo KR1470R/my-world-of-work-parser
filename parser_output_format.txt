@@ -2,7 +2,7 @@
 * Categories
 **/
 {
-    string(sha256): {
+    string(sha256(name)): {
         "name": string,
     },
     ...
@@ -13,7 +13,7 @@
 * Skills
 **/
 {
-    string(sha256): {
+    string(sha256(name)): {
         "name": string,
     },
     ...
@@ -23,7 +23,7 @@
 * Job titles
 **/
 {
-    string(sha256): {
+    string(sha256(job_name)): {
         "category_id": string(sha256),
         "url": string,
         "job_name": string,
